@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link rel="icon"  type="image/png" width="32x32" href="images/Star 10.png">
+    <link rel="stylesheet" href="log.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Login To Coding Market</h2>
+<br>
+<form class="sign" action="home.html" method="post"  name="form" onsubmit="return validated()">
+<p id="user">Email or Username</p>
+<input autocomplete="off" type="text"  id="first" name="email">
+<div id="error"> Enter your email or username</div>
+<p id="pass">Password</p>
+<input type="password"  id="second" name="password">
+<div id="p_error"> Enter your password</div>
+<br>
+<br>
+<div class="login">
+    <button type="submit" id="third">LOGIN</button>
+</div>
+</form>
+    </div>
+
+    <script>
+var email=document.forms['form']['email'];
+var password=document.forms['form']['password'];
+
+var error=document.getElementById("error");
+var p_error=document.getElementById("p_error") ;
+
+email.addEventListener('textInput', email_Verify);
+password.addEventListener('textInput',password_Verify);
+function validated(){
+    if(email.value.length >=4){
+        email.style.border="1px solid red";
+        error.style.display = "block";
+        email.focus();
+        return false;
+    }
+
+    if(password.value.length >=6){
+        password.style.border="1px solid red";
+        p_error.style.display = "block";
+        email.focus();
+        return false;
+    }
+
+}
+function email_Verify(){
+    if(email.value.length >=4){
+        email.style.border="1px solid silver";
+        error.style.display = "block";
+        return true;
+    }
+
+    function password_Verify(){
+    if(password.value.length >=6){
+        password.style.border="1px solid silver";
+        p_error.style.display = "block";
+        return true;
+    }
+}
+
+
+    </script>
+</body>
+</html>
